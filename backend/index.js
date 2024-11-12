@@ -1,17 +1,22 @@
 import express from "express"
 import dotenv from "dotenv"
-import router from './routes/auth.routes.js'
+import cookieparser from "cookie-parser";
+import authRouter from './routes/auth.routes.js'
 import connection from "./db/mongodb.conn.js";
-
+import messageRouter from "./routes/routes.message.js"
 
 
 dotenv.config()
 const app=express();
 
 const PORT=process.env.PORT
+
 app.use(express.json())
-console.log(process.env)
-app.use('/api/v1/auth',router)
+app.use(cookieparser());
+
+
+app.use('/api/v1/auth',authRouter)
+app.use("api/v1/message",messageRouter);
 
 app.listen(PORT,()=>{
     connection();
