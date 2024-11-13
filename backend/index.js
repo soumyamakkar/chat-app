@@ -16,7 +16,7 @@ app.use(cookieparser());
 
 
 app.use('/api/v1/auth',authRouter)
-app.use("api/v1/message",messageRouter);
+app.use("/api/v1/message",messageRouter);
 
 app.listen(PORT,()=>{
     connection();
