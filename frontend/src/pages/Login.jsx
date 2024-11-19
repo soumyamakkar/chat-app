@@ -7,7 +7,7 @@ import { AuthContext } from '../context/AuthContext';
 function Login() {
 
 
-    const {loginInfo,setLoginInfo}=useContext(AuthContext);
+    const {loginInfo,setLoginInfo,submitLogin}=useContext(AuthContext);
 
 
     const handleLogin=(e)=>{
@@ -19,7 +19,7 @@ function Login() {
 
   return (
     <Container>
-    <Form>
+    <Form onSubmit={submitLogin}>
       <Form.Group className="mb-3" controlId="formBasicText">
         <Form.Label>Enter Username</Form.Label>
         <Form.Control type="text" placeholder="Enter Username" onChange={handleLogin} name="username" value={loginInfo.username}/>

@@ -1,0 +1,17 @@
+{
+    "_id": "67349560dc6417be638ec41d",
+    "fullname": "Pauline Zemlak Sr.",
+    "username": "Ubaldo_Beier42",
+    "email": "Wilford45@gmail.com",
+    "gender": "male",
+    "profilepic": "https://avatar.iran.liara.run/public/boy?username=Ubaldo_Beier42"
+}
+
+{
+    "senderId": "67349560dc6417be638ec41d",
+    "receiverId": "67349560dc6417be638ec41d",
+    "message": "Hello! How are you?",
+    "_id": "67349919d8dba9b08411a679",
+    "__v": 0
+}
+

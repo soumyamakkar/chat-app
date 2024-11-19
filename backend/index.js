@@ -4,13 +4,21 @@ import cookieparser from "cookie-parser";
 import authRouter from './routes/auth.routes.js'
 import connection from "./db/mongodb.conn.js";
 import messageRouter from "./routes/routes.message.js"
+import cors from "cors"
 
 
 dotenv.config()
 const app=express();
 
-const PORT=process.env.PORT
+const PORT=process.env.PORT||5000;
 
+app.use(
+    cors({
+        origin:"http://localhost:5173",
+        methods:["GET","POST","PUT","DELETE","OPTIONS"],
+        credentials:true,
+    })
+);
 app.use(express.json())
 app.use(cookieparser());
 
