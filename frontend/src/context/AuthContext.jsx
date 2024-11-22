@@ -8,7 +8,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
     const [loginError,setLoginError]=useState(null);
-    const [user,setUser]=useState({});
+    const [user,setUser]=useState(null);
     const [loginInfo, setLoginInfo] = useState({
         username: "",
         password: "",
@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
         try{
             const response=await postRequest("auth/login",JSON.stringify(loginInfo))
             if(response.error){
-                setLoginError(response);
+                setLoginError(response.message);
             }
             else{
                 localStorage.setItem("user",JSON.stringify(response));
@@ -36,13 +36,9 @@ export const AuthContextProvider = ({ children }) => {
 
     const handleLogout=async()=>{
         const response=await postRequest('auth/logout')
-        if(response.error){
-            setLogoutError(response);
-        }else{
             localStorage.removeItem('user')
-            setUser({});
+            setUser(null);
             navigate("/login");
-        }
     }
 
     return (

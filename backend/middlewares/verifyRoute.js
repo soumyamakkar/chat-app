@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/auth.models.js"
 
-const verifyRoute = async (req, res, next) => {
+ const verifyRoute = async (req, res, next) => {
     try {
         const token = req.cookies.jwt;
 
@@ -27,4 +27,4 @@ const verifyRoute = async (req, res, next) => {
     }
 };
 
-export default verifyRoute;
+export default verifyRoute

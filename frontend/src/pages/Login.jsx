@@ -3,11 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import { AuthContext } from '../context/AuthContext';
+import Alert from 'react-bootstrap/Alert';
 
 function Login() {
 
 
-    const {loginInfo,setLoginInfo,submitLogin}=useContext(AuthContext);
+    const {loginInfo,setLoginInfo,submitLogin,loginError}=useContext(AuthContext);
 
 
     const handleLogin=(e)=>{
@@ -39,6 +40,10 @@ function Login() {
         Login
       </Button>
     </Form>
+    <br></br>
+    {loginError && (
+      <Alert key="loginError" variant="danger">{loginError}</Alert>
+    )}
     </Container>
   )
 }

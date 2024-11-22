@@ -53,7 +53,7 @@ export const login = async (req, res) => {
         const isValidPassword=await bcrypt.compare(password,user.password);
 
         if(!user || !isValidPassword){
-            return res.status(400).send("Invalid username or password")
+            return res.status(400).send({message:"Invalid username or password"})
         }
 
         generatejwt(user._id,res)
@@ -69,7 +69,7 @@ export const login = async (req, res) => {
         })
     }
     catch (error) {
-        res.status(500).send(`Internal server error: ${error.message}`);
+        res.status(500).send({error:"Internal servre Error"});
     }
 };
 
